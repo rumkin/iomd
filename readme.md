@@ -18,7 +18,7 @@ const chunks = jsmd.parse(`
 
 JSMD is a text container created to mix JS, Markdown, LaTeX and any other text
 format in one file. It was originally developed by Mozilla for scientific
-noteboks project [Iodide](https://iodide-project.github.io).
+notebooks project [Iodide](https://iodide-project.github.io).
 
 %% js
 

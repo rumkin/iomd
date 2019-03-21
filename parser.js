@@ -1,48 +1,19 @@
 /* global self define */
 (function(global) {
-  function hashCode(str) {
-    // this is an implementation of java's hashcode method
-    // https://stackoverflow.com/questions/7616461/generate-a-hash-from-string-in-javascript
-    let hash = 0;
-    let chr;
-    if (str.length !== 0) {
-      for (let i = 0; i < str.length; i++) {
-        chr = str.charCodeAt(i);
-        hash = ((hash << 5) - hash) + chr;
-        hash |= 0;
-      }
-    }
-    return hash.toString();
-  }
-
   class ParserState {
-    constructor({makeHash = hashCode} = {}) {
+    constructor() {
       this.chunks = [];
       this.tail = [];
       this.current = null;
       this.line = 0;
       this.index = 0;
-      this.makeHash = makeHash;
     }
 
     commit() {
       const chunk = this.current;
       chunk.commit();
-      chunk.id = this.hashCode(chunk.content);
       this.chunks.push(chunk);
       this.current = null;
-    }
-
-    hashCode(str) {
-      const hash = this.makeHash(str);
-      let hashNum = '0';
-      for (const chunk of this.chunks) {
-        const [prevHash, prevHashNum] = chunk.id.split('_');
-        if (hash === prevHash) {
-          hashNum = (parseInt(prevHashNum, 10) + 1).toString();
-        }
-      }
-      return `${hash}_${hashNum}`;
     }
 
     addLines(lines) {
@@ -126,8 +97,8 @@
     return state;
   }
 
-  function parse(string, options) {
-    const parser = parseLines(new ParserState(options), string, true);
+  function parse(string) {
+    const parser = parseLines(new ParserState(), string, true);
 
     return parser.chunks;
   }

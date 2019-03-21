@@ -1,6 +1,6 @@
 # JSMD Parser
 
-Mozilla's JSMD format standalone parser.
+Mozilla's [JSMD](https://iodide-project.github.io/docs/jsmd/) format standalone parser.
 
 ## Usage
 

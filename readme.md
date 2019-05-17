@@ -1,22 +1,22 @@
-# JSMD Parser
+# IOMD Parser
 
-Mozilla's [JSMD](https://iodide-project.github.io/docs/jsmd/) format standalone parser.
+Mozilla's [IOMD](https://iodide-project.github.io/docs/iomd/) format standalone parser.
 
 ## Usage
 
 ```shell
-npm i jsmd-parser
+npm i iomd
 ```
 
 Use parser:
 ```javascript
-const jsmd = require('jsmd-parser');
+const iomd = require('iomd');
 
-const chunks = jsmd.parse(`
+const chunks = iomd.parse(`
 %% markdown
-# JSMD
+# IOMD
 
-JSMD is a text container created to mix JS, Markdown, LaTeX and any other text
+IOMD is a text container created to mix JS, Markdown, LaTeX and any other text
 format in one file. It was originally developed by Mozilla for scientific
 notebooks project [Iodide](https://iodide-project.github.io).
 

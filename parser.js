@@ -103,21 +103,21 @@
     return parser.chunks;
   }
 
-  const jsmd = {};
-  jsmd.ParserState = ParserState;
-  jsmd.Chunk = Chunk;
-  jsmd.parseLines = parseLines;
-  jsmd.parse = parse;
+  const iomd = {};
+  iomd.ParserState = ParserState;
+  iomd.Chunk = Chunk;
+  iomd.parseLines = parseLines;
+  iomd.parse = parse;
 
   if (typeof module.exports === 'object') {
-    module.exports = jsmd;
+    module.exports = iomd;
   }
   else if (typeof define === 'function' && define.amd) {
     define(function() {
-      return jsmd;
+      return iomd;
     });
   }
   else {
-    global.jsmd = jsmd;
+    global.iomd = iomd;
   }
 })(typeof self !== 'undefined' ? self : this);
